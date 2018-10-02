@@ -1,21 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Halloween Word Guess</title>
+    <title>Halloween Hangman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="Assets/css/reset.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="Assets/css/style.css" />
-    <script src="assets/Javascript/game.js"></script>
 </head>
+
 <body>
-    <h1>Word Guess</h1>
-    <p>Press any key to begin</p><!--Game should begin with keyup and first word guess should be displayed.-->
-    <p><!--Display wins here--></p>
-    <p>Current Word</p> <!--Set up a word bank using an array that will be randomly called on by index. Can I use an array inside the array to grab each letter of the word when it is typed?-->
-    <div id="currentword"><!--Word goes here--></div>
-    <p>Number of guesses remaining: <span id="guesses"></span></p> <!--Each time a key is pressed that is incorrect, the counter must go down by 1. Start with 13 guesses.-->
-    <p>Letters already guessed</p> <!--Like above, each time a incorrect letter is chosen, have it appear here.-->
-    <!--Game must be set to start over once the word is guessed or guessed run out.-->
+    <div class="container bg text-light border border-dark">
+        <div class="row">
+            <div class="col-sm-12 bg-header text-dark text-center">
+                <h1>Halloween Hangman</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+            <p><h2>Press any key to begin</h2></p>
+            <!--Game should begin with keyup and first word guess should be displayed.-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+        <p>
+            <h3>Wins: <span id="wins"><!--Display wins here--></span></h3> 
+        </p>
+        <p>
+            <h3>Losses: <span id="losses"><!--Display losses here--></span></h3>
+        </p>
+            </div>
+            <div class="col-sm-4 text-center">
+        <p><h2>Current Word</h2></p>
+        <!--Set up a word bank using an array that will be randomly called on by index. Can I use an array inside the array to grab each letter of the word when it is typed?-->
+        <h2 id="currentword">
+            <!--Word goes here-->
+        </h2>
+        </div>
+        <div class="col-sm-4">
+        <p>
+            <h3>Guesses remaining: <span id="guesses"></span></h3>
+        </p>
+        <!--Each time a key is pressed that is incorrect, the counter must go down by 1. Start with 13 guesses.-->
+        <p>
+            <h3>Letters already guessed:<br><span id="wrongguess"></span></h3>
+        </p>
+        <!--Like above, each time a incorrect letter is chosen, have it appear here.-->
+        <!--Game must be set to start over once the word is guessed or guessed run out.-->
+        </div>
+    </div>
+    
+    <!--JS file placed here so that the rest of the content loads before it.-->
+    <script src="assets/Javascript/game.js"></script>
+
 </body>
+
 </html>
