@@ -3,17 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Word Guess</title>
+    <title>Halloween Word Guess</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="game.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="Assets/css/style.css" />
+    <script src="assets/Javascript/game.js"></script>
 </head>
 <body>
     <h1>Word Guess</h1>
     <p>Press any key to begin</p><!--Game should begin with keyup and first word guess should be displayed.-->
+    <p><!--Display wins here--></p>
     <p>Current Word</p> <!--Set up a word bank using an array that will be randomly called on by index. Can I use an array inside the array to grab each letter of the word when it is typed?-->
-    <p><!--Word goes here--></p>
-    <p>Number of guesses remaining</p> <!--Each time a key is pressed that is incorrect, the counter must go down by 1. Start with 13 guesses.-->
+    <div id="currentword"><!--Word goes here--></div>
+    <p>Number of guesses remaining: <span id="guesses"></span></p> <!--Each time a key is pressed that is incorrect, the counter must go down by 1. Start with 13 guesses.-->
     <p>Letters already guessed</p> <!--Like above, each time a incorrect letter is chosen, have it appear here.-->
     <!--Game must be set to start over once the word is guessed or guessed run out.-->
 </body>
