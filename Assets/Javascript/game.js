@@ -47,7 +47,7 @@ function reset() {
     //Reset
     //---------------------------------------------------------------------
 
-    letterGuessed = 0;
+    rightGuesses = 0;
     guessesRemain = 10;
     incorrect = [];
     correct = [];
@@ -76,7 +76,7 @@ function startGame() {
     //Reset
     //---------------------------------------------------------------------
 
-    letterGuessed = 0;
+    rightGuesses = 0;
     guessesRemain = 10;
     incorrect = [];
     correct = [];
@@ -90,7 +90,7 @@ function startGame() {
         'v', 'w', 'x',
         'y', 'z'];
 
-    //Populate spaces.
+    //Populate spaces. Currently is not show all spaces for each word. Only showing one. 
     for (var i = 0; i< space; i++);
     {
         correct.push('_');
@@ -118,7 +118,7 @@ function compareLetters(userKey) {
         for (var i = 0; i < space; i++) {
             //fills in right index with user key
             if (storedLetters[i] === userKey) {
-                rightGuesses++;
+                rightGuesses++; //just changed. see if this works.
                 correct[i] = userKey;
                 document.getElementById('currentword').innerHTML = correct.join(' ');
             }
@@ -137,7 +137,7 @@ function compareLetters(userKey) {
         console.log('Guesses left: ' + guessesRemain);
     }
 }
-//Win/Loss conditions - need to figure out why game doesn't reset after the first win.
+//Win/Loss conditions 
 function winLose() {
     if (rightGuesses === space) {
         //Increase win count
@@ -162,7 +162,7 @@ document.onkeyup = function (event) {
     test = true;
     var letterGuessed = event.key;
     for (var i = 0; i < doubleLetter.length; i++) {
-        if (letterGuessed === doubleLetter[i] && test === true) {
+        if (letterGuessed === doubleLetter[i] && test === true) { //This makes sure that if the word has multiple instances of the same letter, all will be revealed with one guess.
             var spliceDletter = doubleLetter.splice(i,1);
             //TEST
             console.log('Double letter is = ' + doubleLetter[i])
@@ -173,49 +173,3 @@ document.onkeyup = function (event) {
         }
     }
 }
-
-
-
-// //Choose a word randomly from the array
-// var wordChoice = wordbank[Math.floor(Math.random() * wordbank.length)];//this should randomly pull words from the wordbank.
-
-// console.log(wordChoice); //Check to see if the word is being pulled randomly from the array.
-
-// //Pull number of guesses remaining
-// var showGuesses = document.getElementById("guesses"); //number of guesses remaining
-
-// console.log(showGuesses); //Check to see if the number of guesses is being pulled. Until the starting number is set, this will be null.
-
-// //Create the letter spaces where the words will go
-// var space = () => {
-//     for (var i = 0; i < wordChoice.length; i++) {
-//         storedGuess.push('_');
-//     }
-//     return storedGuess
-// }
-
-// console.log(space());
-
-// //User Guess - converts keypresses into keyCode and then into actual letter values. Then checks whether the current randomly chosen word contains those letters when they are pressed.
-
-// document.addEventListener('keypress', (event) => {
-//     var keyWord = String.fromCharCode(event.keyCode);
-//     //if user guess is correct
-//     if (wordChoice.indexOf(keyWord) > -1) {
-//         //add to the correct array
-//         correct.push(keyWord);
-//         //replace letter spaces with correct guesses
-//         storedGuess[wordChoice.indexOf(keyWord)] = keyWord;
-//         //check to see if user word matches guesses
-//         if (storedGuess.join('') == wordChoice) {
-//             alert("You win!");
-//         }
-//         console.log(storedGuess);
-//     }
-//     //if user is incorrect
-//     else {
-//         incorrect.push(keyWord);
-//         //add to incorrect array
-//         console.log(incorrect);
-//     }
-// })
