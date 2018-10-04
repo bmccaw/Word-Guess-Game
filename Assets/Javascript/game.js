@@ -1,6 +1,6 @@
 //Variables
 //-----------------------------------------------------------------------------
-//Need to make sure that words with two instances of a letter can be answered
+//Need to make sure that words with two or more instances of a letter can be answered
 var doubleLetter = ['a', 'b', 'c',
     'd', 'e', 'f',
     'g', 'h', 'i',
@@ -90,7 +90,7 @@ function startGame() {
         'v', 'w', 'x',
         'y', 'z'];
 
-    //Populate spaces. Currently is not show all spaces for each word. Only showing one. 
+    //Populate spaces. Currently is not showing all spaces for each word. Only showing one. 
     for (var i = 0; i< space; i++);
     {
         correct.push('_');
@@ -111,7 +111,6 @@ function startGame() {
 }
 function compareLetters(userKey) {
 
-    console.log('Working!');
     //if userKey exists in the word than run this function
     if (storedGuess.indexOf(userKey) > -1) {
         //Loops based on number of blanks
@@ -132,7 +131,7 @@ function compareLetters(userKey) {
         //Change HTML
         document.getElementById('guesses').innerHTML = guessesRemain;
         document.getElementById('wrongguess').innerHTML = incorrect;
-
+        //Test
         console.log('Wrong letters: ' + incorrect);
         console.log('Guesses left: ' + guessesRemain);
     }
