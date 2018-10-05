@@ -9,7 +9,8 @@ Currently Working
 - If there are not more empty spaces, win counter increases by 1
 - If 'Guesses remaining' reaches zero, loss counter increases by 1
 - Game resets after win or loss
+- Added area to display the last word guessed after win/lose scenario.
 
 Current Bugs
 =====================
-- currently only on 'space' is populating the HTML instead of spaces equal to the number of letters in the chosen word
+- ~~currently only on 'space' is populating the HTML instead of spaces equal to the number of letters in the chosen word~~ Solved!
