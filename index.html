@@ -9,23 +9,31 @@
     <link rel="stylesheet" type="text/css" media="screen" href="Assets/css/reset.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="Assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
 </head>
 
 <body class="bg-dark">
-    <div class="container bg text-light border border-dark rounded position-relative">
+        <audio id="scream" src="Assets/sounds/Psycho Scream-SoundBible.com-1441943673.mp3" preload="auto"></audio>
+        <audio id="reaper" src="Assets/sounds/Demon_Your_Soul_is_mine-BlueMann-1903732045.mp3" preload="auto"></audio>
+
+        <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+                <iframe frameborder="0" height="100%" width="100%" 
+                  src="https://youtube.com/embed/1NhTY-b7V3E?autoplay=1&loop=1&controls=0&showinfo=0&autohide=1&iv_load_policy=3&disablekb=1&modestbranding=1&rel=0&mute=1&playlist=1NhTY-b7V3E">
+                </iframe>
+           </div>
+    <div class="container bg text-light border-dark rounded position-relative">
         <div class="row">
             <div class="col-sm-12 bg-header text-dark text-center rounded">
-                <h1>Halloween Hangman</h1>
+                <h1><img class="pumpkin" src="Assets/Images/jack-o-lantern.gif">Halloween Hangman<img class="pumpkin" src="Assets/Images/jack-o-lantern.gif"></h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 text-center">
-            <p><h2>Press any key to begin</h2></p>
-            <!--Game should begin with keyup and first word guess should be displayed.-->
+            <div class="col-sm-12 text-center p-5">
+            <p><h2>Press a letter to begin</h2></p>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3 p-5 pt-4">
         <p>
             <h3>Wins: <span id="wins"><!--Display wins here--></span></h3> 
         </p>
@@ -33,22 +41,30 @@
             <h3>Losses: <span id="losses"><!--Display losses here--></span></h3>
         </p>
             </div>
-            <div class="col-sm-4 text-center">
+            <div class="col-sm-6 text-center p-4">
         <p><h2>Current Word</h2></p>
         <!--Set up a word bank using an array that will be randomly called on by index. Can I use an array inside the array to grab each letter of the word when it is typed?-->
         <h2 id="currentword">_ _ _ _ _ _ _</h2>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3 p-4 pt-5">
         <p>
-            <h3>Guesses remaining: <span id="guesses"></span></h3>
+            <h3>Guesses: <span id="guesses" class="text-center"></span></h3>
         </p>
         <!--Each time a key is pressed that is incorrect, the counter must go down by 1. Start with 13 guesses.-->
         <p>
-            <h3>Letters already guessed:<br><span id="wrongguess"></span></h3>
+            <h3>Letters guessed:<br><span id="wrongguess"></span></h3>
         </p>
         <!--Like above, each time a incorrect letter is chosen, have it appear here.-->
         <!--Game must be set to start over once the word is guessed or guessed run out.-->
         </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center p-4 pb-5">
+            <!--Displays the last word played.-->
+                <h3>Last Word: <br> <span id="previousword"></span></h3>
+           </div>
+        </div>
+
     </div>
     
     <!--JS file placed here so that the rest of the content loads before it.-->

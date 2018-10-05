@@ -5,8 +5,20 @@
     background: orange;
 }
 .container {
-    top:30px;
+    top:50px;
+    opacity: .75;
+   /* width:5000px;*/
+    height:750px;
 }
-h1,h2 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+h1 {
+    font-size: 100px;
+    text-shadow: 2px 2px black;
+}
+h1,h2,h3 {
+    font-family: 'Creepster', cursive;
+}
+.pumpkin {
+    width: 100px;
+    position: relative;
+    bottom: 10px;    
 }

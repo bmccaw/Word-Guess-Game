@@ -12,7 +12,7 @@ var doubleLetter = ['a', 'b', 'c',
     'y', 'z'];
 
 //Create an array of words (Wordbank).
-var wordbank = ["pumpkin", "ghost", "witch", "samhain", "demon", "crypt", "gravestone", "goblin", "poltergeist", "skulls", "zombie"]; //an array of possible word choices. these need to be chosen at random.
+var wordbank = ["pumpkin", "ghost", "witch", "samhain", "demon", "crypt", "gravestone", "goblin", "poltergeist", "skulls", "zombie", "ghoul", "apparition", "cemetary", "death", "fangs", "macabre", "phantom", "supernatural", "warlock", "werewolf", "wraith", "vampire"]; //an array of possible word choices. these need to be chosen at random.
 
 var storedGuess = ""; //stored current word choice.
 
@@ -23,6 +23,8 @@ var correct = []; //holds correct guesses and spaces.
 var incorrect = []; //holds incorrect guesses
 
 var space = 0; //number of spaces or blanks in a word
+
+var previousWord = ""; //holds the previous word
 
 //Counters
 var winCount = 0;//number of wins
@@ -47,6 +49,7 @@ function reset() {
     //Reset
     //---------------------------------------------------------------------
 
+    letterGuessed = 0;
     rightGuesses = 0;
     guessesRemain = 10;
     incorrect = [];
@@ -91,7 +94,7 @@ function startGame() {
         'y', 'z'];
 
     //Populate spaces. Currently is not showing all spaces for each word. Only showing one. 
-    for (var i = 0; i< space; i++);
+    for (var i = 0; i< space; i++)
     {
         correct.push('_');
         document.getElementById('currentword').innerHTML = correct;
@@ -103,11 +106,13 @@ function startGame() {
     document.getElementById('wins').innerHTML = winCount;
     document.getElementById('losses').innerHTML = loseCount;
     document.getElementById('wrongguess').innerHTML = incorrect;
+    document.getElementById('previousword').innerHTML = previousWord;
     //Testing
     console.log(storedGuess);
     console.log(storedLetters);
     console.log(space);
     console.log(correct);
+    console.log(previousWord);
 }
 function compareLetters(userKey) {
 
@@ -141,15 +146,21 @@ function winLose() {
     if (rightGuesses === space) {
         //Increase win count
         winCount++;
+        previousWord = storedGuess;
+        document.getElementById('previousword').innerHTML = previousWord;
         document.getElementById('wins').innerHTML = winCount;
-        alert('You Win!');
+        document.getElementById('scream').play();
+        //alert('You Win!');
         reset();
     }
     else if (guessesRemain === 0) {
         //Increase loss count
         loseCount++;
+        previousWord = storedGuess;
+        document.getElementById('previousword').innerHTML = previousWord;
         document.getElementById('losses').innerHTML = loseCount;
-        alert('All out of guesses...');
+        document.getElementById('reaper').play ();
+        //alert('All out of guesses...');
         reset();
     }
 }
